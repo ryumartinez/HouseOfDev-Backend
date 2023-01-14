@@ -18,7 +18,7 @@ const getAllProperties = async (req, res) => {
  * @access Protegido
  */
 const createNewProperty = async (req, res) => {
-  const { name, description, imageUrl, area, direccion, habitaciones,sanitarios,precio } =
+  const { name, description, imageUrl, area, direccion, habitaciones,sanitarios,precio,categoria } =
     req.body;
   // Confirmar data
 
@@ -31,7 +31,8 @@ const createNewProperty = async (req, res) => {
     direccion,
     habitaciones,
     sanitarios,
-    precio
+    precio,
+    categoria
   });
   if (property) {
     return res.status(201).json({ message: "Nueva propiedad creada" });
@@ -48,7 +49,7 @@ const createNewProperty = async (req, res) => {
  * @access Protegido
  */
 const deleteProperty = async (req, res) => {
-  const { id } = req.body;
+  const { id } = req.params;
   console.log(id)
   // Confirmo la data
   if (!id) {
