@@ -4,6 +4,7 @@ const favoriteController = require("../controllers/favoriteController")
 
 router.route("/")
     .post(favoriteController.createFavorite)
+    .delete(favoriteController.deleteFavorite)
 router.route("/:UserId")
     .get(favoriteController.getFavoritesByUserId)
 

@@ -7,6 +7,7 @@ router
   .route("/")
   .get(propertyController.getAllProperties)
   .post(propertyController.createNewProperty)
+router.route("/:id")
   .delete(propertyController.deleteProperty);
 router
   .route("/search")
