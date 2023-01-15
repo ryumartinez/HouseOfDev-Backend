@@ -47,8 +47,12 @@ const getSession = async (req, res) => {
   }
   const token = authHeader.split(" ")[1];
   const decoded = jwt.decode(token)
-  const user = await Users.findOne({where:{id:decoded.UserInfo.id}})
-  res.send(user)
+  if(decoded.UserInfo){
+      const user = await Users.findOne({where:{id:decoded.UserInfo.id}})
+    res.send(user)
+  }
+ 
+
 };
 
 module.exports = {
