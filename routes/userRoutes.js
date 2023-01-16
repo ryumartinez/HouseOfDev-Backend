@@ -1,12 +1,13 @@
 const express = require('express')
 const router = express.Router()
 const usersController = require('../controllers/usersController')
+const verifyJWT = require('../middlewares/verifyJWT')
 
 /**
  * @desc Ruta /users
  */
 
-
+router.use(verifyJWT)
 router.route('/')
     .get(usersController.getAllUsers)
     .post(usersController.createNewUser)

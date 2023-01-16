@@ -3,7 +3,7 @@ const { Op } = require("sequelize");
 /**
  * @desc Listar propiedades
  * @route GET /properties
- * @access Protegido
+ * @access Publico
  */
 const getAllProperties = async (req, res) => {
   // conseguir la lista de mi base de datos
@@ -67,7 +67,7 @@ const deleteProperty = async (req, res) => {
 /**
  * @desc Buscar una propiedad
  * @route GET /properties/:search
- * @access Protegido
+ * @access Publico
  */
 const searchProperties = async (req, res) => {
   const { search,precio,habitaciones} = req.query;
