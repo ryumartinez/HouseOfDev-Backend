@@ -6,9 +6,9 @@ const verifyJWT = require("../middlewares/verifyJWT");
 router
   .route("/")
   .get(propertyController.getAllProperties)
-  .post(propertyController.createNewProperty)
+  .post(verifyJWT,propertyController.createNewProperty)
 router.route("/:id")
-  .delete(propertyController.deleteProperty);
+  .delete(verifyJWT,propertyController.deleteProperty);
 router
   .route("/search")
   .get(propertyController.searchProperties)
