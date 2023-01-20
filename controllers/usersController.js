@@ -38,7 +38,7 @@ const getAllUsers = async (req, res) => {
  * @access Publico
  */
 const createNewUser = async (req, res) => {
-  const { username, password, role, email, imageUrl } = req.body;
+  const { username, password, email,telefono } = req.body;
   //confirmo la data
   if (!username || !password ) {
     return res.status(400).json({ message: "Todos los campos son requeridos" });
@@ -50,9 +50,9 @@ const createNewUser = async (req, res) => {
   const newUser = {
     username,
     password: hashedPwd,
-    role,
+   telefono,
     email,
-    imageUrl,
+    
   };
   const user = await Users.create(newUser);
   if (user) {
