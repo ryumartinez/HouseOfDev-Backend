@@ -2,7 +2,7 @@ const { Sequelize } = require("sequelize");
 require("dotenv").config()
 const database_url = process.env.DATABASE_URL
 const db = new Sequelize(
-  database_url
+`${database_url}`
 );
 const authenticateDb = async () => {
   try {
