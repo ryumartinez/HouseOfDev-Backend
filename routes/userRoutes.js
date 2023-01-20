@@ -7,11 +7,11 @@ const verifyJWT = require('../middlewares/verifyJWT')
  * @desc Ruta /users
  */
 
-router.use(verifyJWT)
+
 router.route('/')
     .get(usersController.getAllUsers)
     .post(usersController.createNewUser)
-    .delete(usersController.deleteUser)
+    .delete(verifyJWT,usersController.deleteUser)
 router
     .route("/singleUser")
     .get(usersController.getSingleUser)
