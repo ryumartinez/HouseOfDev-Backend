@@ -1,7 +1,8 @@
 const { Sequelize } = require("sequelize");
-
+require("dotenv").config()
+const database_url = process.env.DATABASE_URL
 const db = new Sequelize(
-  "postgresql://postgres:lSxnDriVGqg1DNujCQ89@containers-us-west-35.railway.app:5877/railway"
+  database_url
 );
 const authenticateDb = async () => {
   try {
